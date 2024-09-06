@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RideFind</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+   
+    <section class="mapas">
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <div class="menu-toggle-bar"></div>
+                <div class="menu-toggle-bar"></div>
+                <div class="menu-toggle-bar"></div>
+            </div>
+            <div class="logo-container">
+                <img src="images/RideFind_icon.png"  alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#Inicio" class="borderless-btn">Inicio</a></li>
+                <li><a href="#Vehiculos" class="borderless-btn">Vehículos</a></li>
+                <li><a href="#Beneficios" class="borderless-btn">Beneficios</a></li>
+                <li><a href="#Nosotros" class="borderless-btn">Nosotros</a></li>
+                <li><a href="#Contactanos" class="borderless-btn">Contactanos</a></li>
+                <li><a href="#" class="round-btn login">Ingresa</a></li>
+                <li><a href="#" class="round-btn signup">Regístrate</a></li>
+            </ul>
+        </nav>
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('nav div ul');
+            const logo = document.querySelector('.logo-container');
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                logo.classList.toggle('inactive');
+                navList.classList.toggle('active');
+            });
+        </script>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+  
+    window.addEventListener('scroll', function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  
+      if (currentScroll > lastScrollTop) {
+        // Hacer scroll hacia abajo - Ocultar navbar
+        navbar.classList.add('navbar-hidden');
+      } else {
+        // Hacer scroll hacia arriba - Mostrar navbar
+        navbar.classList.remove('navbar-hidden');
+      }
+  
+      lastScrollTop = currentScroll;
+    });
+  </script>
+  
+
+        <div id="Inicio" class="Contenedoruno">
+            <div class="columna">
+                <img class="image1" src="images/imagen1.png" class="imgBanner" alt="">
+            </div>
+            <div class="columna1">
+                <p id="txtmapas" class="txtmapas">
+                    <span style="font-size: 35pt; font-weight: bold;">RideFind</span>
+                    <br>
+                    Somos una plataforma diseñada para ofrecer <br>
+                    a las personas una manera fácil y accesible <br>
+                    de explorar nuevas alternativas de transporte, <br>
+                    contribuyendo a la movilidad sostenible y cuidando<br>
+                    el medio ambiente.
+                </p>
+                
+
+            </div>
+            <div class="columna">
+                <img class="image1" src="images/bike1.png" class="imgBanner2" alt="">
+            </div>
+
+        </div>
+
+     </section>
+   
+    
+    
+     <section>
+        <div class="alertas">
+    </section>
+    <div id="alertas" class="alert-section">
+        <div class="alert-image">
+            <img src="images/finesdelivery.png" alt="Imagen de Alerta" class="alert-img">
+        </div>
+        <div class="alert-content">
+            <h2 class="alert-title">¡Trabaja con nuestra unidades!</h2>
+            <h3 style="font-size: 15pt;  font-family: Arial, Helvetica, sans-serif;">
+                Ya sea Auto, Bicicleta, Scooter u otro, empieza a generar ingresos <br>
+                extra trabajando en delivery o taxi. Te ofrecemos trafifas planas <br>
+                accesibles por día para que maximices tus ganancias mientras ayudas <br>
+                a mejorar la movilidad en nuestra ciudad. <br>
+                Únete a RideFind y disfruta de beneficios exclusivos que te permitiran trabajar de manera eficiente y rentable </h3>
+            <h3> </h3>
+            <h3> </h3>
+            <br>
+           
+        </div>
+    </div>
+    <section>
+        </div>
+    </section>
+
+    <section id="Vehiculos" class="backofr">
+        <div class="Ofrecemos">
+          <h1>Algunas de nuestras unidades...</h1>
+          <div class="carousel-container">
+          
+            <div class="carousel-wrapper">
+              <div class="card">
+                <h2 class="cardtext">Autos electricos</h2>
+                <img src="images/tesla.png" alt="Imagen de la Card 1">
+              </div>
+      
+              <div class="card">
+                <h2 class="cardtext">Bicicletas</h2>
+                <img src="images/bike2.png" alt="Imagen de la Card 2">
+               
+              </div>
+      
+              <div class="card">
+                <h2 class="cardtext">Scooters</h2>
+                <img src="images/scooter.png" alt="Imagen de la Card 3">
+                
+              </div>
+      
+              <div class="card">
+                <h2 class="cardtext">Motos Electricas</h2>
+                <img src="images/motoElectrica.png" alt="Imagen de la Card 4">
+              </div>
+            </div>
+            <button class="next" onclick="moveCarousel(1)">&#10095;</button>
+          </div>
+        </div>
+
+        <script>
+            let currentCard = 0;
+            const cards = document.querySelectorAll('.carousel-wrapper .card');
+          
+            // Mostrar la primera tarjeta al cargar la página
+            cards[currentCard].classList.add('active');
+          
+            function moveCarousel(direction) {
+              // Ocultar la tarjeta actual
+              cards[currentCard].classList.remove('active');
+              cards[currentCard].style.opacity = 0;
+          
+              // Cambiar a la siguiente tarjeta
+              currentCard += direction;
+          
+              // Si estamos al principio o al final, volver a empezar
+              if (currentCard < 0) {
+                currentCard = cards.length - 1;
+              } else if (currentCard >= cards.length) {
+                currentCard = 0;
+              }
+          
+              // Mostrar la nueva tarjeta con fade
+              cards[currentCard].classList.add('active');
+              setTimeout(() => {
+                cards[currentCard].style.opacity = 1;
+              }, 100); // Breve retardo para hacer el efecto fade
+            }
+          </script>
+          
+
+      </section>
+      
+    
+   
+    <section id="Beneficios" class="Beneficios">
+        <div class="ContenerdorBeneficios">
+            <div class="titulito">
+                <h2>Algunos de los muchos Beneficios</h2>
+           
+            <div class="robo">
+                <img class="imagen" src="images/traffic.png" alt="">
+                <h3>Evite el tráfico</h3>
+            </div>
+            <div class="transito">
+                <img class="imagen" src="images/greenfoot.png" alt="">
+                <h3>Reduzca su huella</h3>
+            </div>
+            <div class="persona3">
+                <img class="imagen" src="images/ecofriend.png" alt="">
+                <h3>Vida más saludable</h3>
+            </div>
+        </div>
+    </section>
+   
+    <section>
+        <section id="Nosotros" class="nosotros">
+            <h2 style="font-size: 35pt;  font-family: Arial;">Nosotros</h2>
+        </section>
+        </div>
+    </section>
+
+    <div id="Contactanos" class="contact-section">
+        <h1>Contacto</h1>
+        <p>Dejenos sus datos y nos comunicaremos con usted</p>
+        <input type="text" placeholder="Nombre Completo">
+        <input type="text" placeholder="Teléfono Celular">
+        <input type="text" placeholder="Email">
+        <button type="submit" onclick="window.location.href='';">Enviar</button>
+    </div>
+    <footer class="footer">
+        <p>Derechos reservados a RideFind &copy; 2024</p>
+      </footer>
+      
+</body>
+
+</html>
